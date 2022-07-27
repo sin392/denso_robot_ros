@@ -6,13 +6,13 @@
             <visual>
                 <origin xyz="0 0 0" rpy="0 0 0" />
                 <geometry>
-                    <mesh filename="package://vs087_description/J${num}.dae" scale="1 1 1" />
+                    <mesh filename="package://denso_robot_descriptions/vs087_description/J${num}.dae" scale="1 1 1" />
                 </geometry>
             </visual>
             <collision>
                 <origin xyz="0 0 0" rpy="0 0 0" />
                 <geometry>
-                    <mesh filename="package://vs087_description/J${num}.dae" scale="1 1 1" />
+                    <mesh filename="package://denso_robot_descriptions/vs087_description/J${num}.dae" scale="1 1 1" />
                 </geometry>
             </collision>
             <inertial>
@@ -112,13 +112,13 @@
             <visual>
                 <origin rpy="0 0 0" xyz="0 0 0" />
                 <geometry>
-                    <mesh filename="package://vs087_description/base_link.dae" scale="1 1 1" />
+                    <mesh filename="package://denso_robot_descriptions/vs087_description/base_link.dae" scale="1 1 1" />
                 </geometry>
             </visual>
             <collision>
                 <origin rpy="0 0 0" xyz="0 0 0" />
                 <geometry>
-                    <mesh filename="package://vs087_description/base_link.dae" scale="1 1 1" />
+                    <mesh filename="package://denso_robot_descriptions/vs087_description/base_link.dae" scale="1 1 1" />
                 </geometry>
             </collision>
             <inertial>
