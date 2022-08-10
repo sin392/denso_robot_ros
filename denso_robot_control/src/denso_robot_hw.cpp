@@ -76,18 +76,23 @@ HRESULT DensoRobotHW::Initialize()
   {
     std::stringstream ss;
     ss << "joint_" << i + 1;
+    std::string default_joint_name = ss.str();
 
-    if (!nh.getParam(ss.str(), m_type[i]))
+    if (!nh.getParam(default_joint_name, m_type[i]))
     {
       ROS_WARN("Failed to get joint_%d parameter.", i + 1);
       ROS_WARN("It was assumed revolute type.");
       m_type[i] = 1;
     }
 
-    hardware_interface::JointStateHandle state_handle(ss.str(), &m_pos[i], &m_vel[i], &m_eff[i]);
+    std::string joint_name = "";
+    std::string name_param_key = default_joint_name + "_name";
+    nh.param(name_param_key, joint_name, default_joint_name);
+
+    hardware_interface::JointStateHandle state_handle(joint_name, &m_pos[i], &m_vel[i], &m_eff[i]);
     m_JntStInterface.registerHandle(state_handle);
 
-    hardware_interface::JointHandle pos_handle(m_JntStInterface.getHandle(ss.str()), &m_cmd[i]);
+    hardware_interface::JointHandle pos_handle(m_JntStInterface.getHandle(joint_name), &m_cmd[i]);
     m_PosJntInterface.registerHandle(pos_handle);
   }
 
